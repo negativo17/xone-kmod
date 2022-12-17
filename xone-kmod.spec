@@ -33,7 +33,7 @@
 
 Name:           xone-kmod
 Version:        0.3
-Release:        1%{?dist}
+Release:        1%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
 Summary:        Linux kernel driver for Xbox One and Xbox Series X|S accessories
 License:        GPLv2
 URL:            https://github.com/medusalix/xone
