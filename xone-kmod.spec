@@ -1,7 +1,7 @@
-%global commit0 8311a25f2b4e69b7a3f8133b884cede065b253cc
-%global date 20220606
+%global commit0 bbf0dcc484c3f5611f4e375da43e0e0ef08f3d18
+%global date 20230517
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global tag %{version}
+#global tag %{version}
 
 # buildforkernels macro hint: when you build a new version or a new release
 # that contains bugfixes or other improvements then you must disable the
@@ -33,7 +33,7 @@
 
 Name:           xone-kmod
 Version:        0.3
-Release:        1%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
+Release:        2%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
 Summary:        Linux kernel driver for Xbox One and Xbox Series X|S accessories
 License:        GPLv2
 URL:            https://github.com/medusalix/xone
@@ -86,5 +86,8 @@ done
 %{?akmod_install}
 
 %changelog
+* Sun Jun 04 2023 Simone Caronni <negativo17@gmail.com> - 0.3-2.20230517gitbbf0dcc
+- Update to latest commits.
+
 * Tue Aug 9 2022 Simone Caronni <negativo17@gmail.com> - 0.3-1
 - First build.
