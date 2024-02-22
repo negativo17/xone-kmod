@@ -10,7 +10,7 @@
 
 Name:           xone-kmod
 Version:        0.3
-Release:        8%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
+Release:        9%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
 Summary:        Linux kernel driver for Xbox One and Xbox Series X|S accessories
 License:        GPLv2
 URL:            https://github.com/medusalix/xone
@@ -44,7 +44,7 @@ kmodtool  --target %{_target_cpu}  --repo negativo17.org --kmodname %{name} %{?b
 
 for kernel_version in %{?kernel_versions}; do
     mkdir _kmod_build_${kernel_version%%___*}
-    cp -fr bus driver transport Kbuild _kmod_build_${kernel_version%%___*}
+    cp -fr auth bus driver transport Kbuild _kmod_build_${kernel_version%%___*}
 done
 
 %build
@@ -63,6 +63,9 @@ done
 %{?akmod_install}
 
 %changelog
+* Thu Feb 22 2024 Simone Caronni <negativo17@gmail.com> - 0.3-9.20240214gitab688dd
+- Fix build.
+
 * Sat Feb 17 2024 Simone Caronni <negativo17@gmail.com> - 0.3-8.20240214gitab688dd
 - Update to latest snapshot.
 
