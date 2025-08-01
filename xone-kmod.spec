@@ -1,7 +1,7 @@
 %global commit 197b160f7806d7d27117b12198cacb7656a07f1f
 %global date 20250502
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-#global tag %{version}
+%global tag %{version}
 
 # Build only the akmod package and no kernel module packages:
 %define buildforkernels akmod
@@ -9,8 +9,8 @@
 %global debug_package %{nil}
 
 Name:           xone-kmod
-Version:        0.3%{!?tag:^%{date}git%{shortcommit}}
-Release:        16%{?dist}
+Version:        0.3.5%{!?tag:^%{date}git%{shortcommit}}
+Release:        1%{?dist}
 Summary:        Linux kernel driver for Xbox One and Xbox Series X|S accessories
 License:        GPLv2
 URL:            https://github.com/dlundqvist/xone
@@ -65,6 +65,9 @@ done
 %{?akmod_install}
 
 %changelog
+* Fri Aug 01 2025 Simone Caronni <negativo17@gmail.com> - 0.3.5-1
+- Update to 0.3.5.
+
 * Sat May 10 2025 Simone Caronni <negativo17@gmail.com> - 0.3^20250502git197b160-16
 - Update to latest snapshot.
 
