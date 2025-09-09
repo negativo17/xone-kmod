@@ -1,25 +1,16 @@
-%global commit 197b160f7806d7d27117b12198cacb7656a07f1f
-%global date 20250502
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global tag %{version}
-
 # Build only the akmod package and no kernel module packages:
 %define buildforkernels akmod
 
 %global debug_package %{nil}
 
 Name:           xone-kmod
-Version:        0.4.4%{!?tag:^%{date}git%{shortcommit}}
+Version:        0.4.4
 Release:        1%{?dist}
 Summary:        Linux kernel driver for Xbox One and Xbox Series X|S accessories
 License:        GPLv2
 URL:            https://github.com/dlundqvist/xone
 
-%if 0%{?tag:1}
 Source0:        %{url}/archive/v%{version}.tar.gz#/xone-%{version}.tar.gz
-%else
-Source0:        %{url}/archive/%{commit}.tar.gz#/xone-%{shortcommit}.tar.gz
-%endif
 
 # Get the needed BuildRequires (in parts depending on what we build for):
 BuildRequires:  kmodtool
@@ -36,11 +27,7 @@ Linux kernel driver for Xbox One and Xbox Series X|S accessories.
 # Print kmodtool output for debugging purposes:
 kmodtool  --target %{_target_cpu}  --repo negativo17.org --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null
 
-%if 0%{?tag:1}
 %autosetup -p1 -n xone-%{version}
-%else
-%autosetup -p1 -n xone-%{commit}
-%endif
 
 find . -type f -name '*.c' -exec sed -i "s/#VERSION#/%{version}/" {} \;
 
