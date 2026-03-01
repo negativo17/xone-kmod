@@ -4,7 +4,7 @@
 %global debug_package %{nil}
 
 Name:           xone-kmod
-Version:        0.5.6
+Version:        0.5.7
 Release:        1%{?dist}
 Summary:        Linux kernel driver for Xbox One and Xbox Series X|S accessories
 License:        GPLv2
@@ -52,6 +52,9 @@ done
 %{?akmod_install}
 
 %changelog
+* Sun Mar 01 2026 Simone Caronni <negativo17@gmail.com> - 0.5.7-1
+- Update to 0.5.7.
+
 * Wed Feb 25 2026 Simone Caronni <negativo17@gmail.com> - 0.5.6-1
 - Update to 0.5.6.
 
